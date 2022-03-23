@@ -44,6 +44,7 @@ namespace Project2.Concretes.Controllers
            
         }
 
+
         private void FixedUpdate()
         {
             Movement();
