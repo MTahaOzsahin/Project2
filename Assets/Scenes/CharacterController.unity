@@ -150,10 +150,20 @@ PrefabInstance:
       propertyPath: m_TileSpriteArray.Array.data[7].m_Data
       value: 
       objectReference: {fileID: 1257658561}
+    - target: {fileID: 6499457561223289848, guid: dae5b4f63614f8e45b91578728b18b01,
+        type: 3}
+      propertyPath: m_ColliderPaths.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6499457561333797008, guid: dae5b4f63614f8e45b91578728b18b01,
         type: 3}
       propertyPath: m_Name
       value: BASE
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499457561333797008, guid: dae5b4f63614f8e45b91578728b18b01,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6499457561333797010, guid: dae5b4f63614f8e45b91578728b18b01,
         type: 3}
@@ -773,24 +783,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6223135876408822510, guid: 02d5deb094ceeb84281104dfef2dfab8,
+    - target: {fileID: 8361659188140414524, guid: 02d5deb094ceeb84281104dfef2dfab8,
         type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6223135876408822510, guid: 02d5deb094ceeb84281104dfef2dfab8,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6223135876408822510, guid: 02d5deb094ceeb84281104dfef2dfab8,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6223135876408822510, guid: 02d5deb094ceeb84281104dfef2dfab8,
-        type: 3}
-      propertyPath: m_Color.r
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

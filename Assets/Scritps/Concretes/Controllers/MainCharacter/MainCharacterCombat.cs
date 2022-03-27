@@ -13,6 +13,7 @@ namespace Project2.Concretes.Controllers.MainCharacter
         MainCharacterAnimationController mainCharacterAnimationController;
         MainCharacterMovementController mainCharacterMovementController;
 
+
         float delayAttackTime = 1f;
         float delayInvisibilitySkill = 10f;
         float delayDashSkill = 5f;
@@ -101,19 +102,6 @@ namespace Project2.Concretes.Controllers.MainCharacter
                 }
                 yield break;
             }
-            
-            
-            
-            //if (Input.GetKeyDown(KeyCode.K))
-            //{
-            //    mainCharacterMovementController.RunSpeed =  12f; 
-            //    mainCharacterSpriteRenderer.DOFade(0.55f, 0.5f);
-            //    Tween fadeTween = mainCharacterSpriteRenderer.DOFade(0.55f, 0.3f);
-
-            //    Tween fadeBackTween = mainCharacterSpriteRenderer.DOFade(1f, 0.3f);
-            //    fadeBackTween.SetDelay<Tween>(2f);
-
-            //}
         }
 
         void DashSkillTimer()
@@ -137,7 +125,6 @@ namespace Project2.Concretes.Controllers.MainCharacter
 
             if (canDashSkill)
             {
-                
                 if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.D))
                 {
                     canDashSkill = false;
@@ -173,10 +160,51 @@ namespace Project2.Concretes.Controllers.MainCharacter
 
                     mainCharacterTransform.DOMoveX(mainCharacterTransform.position.x - 4, 0.3f, false);
                 }
-            }
+                else if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
+                {
+                    canDashSkill = false;
+                    currentDashSkillDelayTime = 0f;
 
-            
+                    Tween colorTween = mainCharacterSpriteRenderer.DOColor(color, 0.01f);
+                    Tween colorBackTween = mainCharacterSpriteRenderer.DOColor(colorOriginal, 0.01f);
+                    colorBackTween.SetDelay<Tween>(0.3f);
+
+                    Tween shakeTween = mainCharacterTransform.DOShakePosition(0.3f, 0.3f, 3, 10, false, true);
+
+                    mainCharacterSpriteRenderer.DOFade(0.55f, 0.01f);
+                    Tween fadeBackTween = mainCharacterSpriteRenderer.DOFade(1f, 0.01f);
+                    fadeBackTween.SetDelay<Tween>(0.3f);
+
+                    mainCharacterTransform.DOMoveY(mainCharacterTransform.position.y + 4, 0.3f, false);
+                }
+                else if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetKey(KeyCode.S))
+                {
+                    canDashSkill = false;
+                    currentDashSkillDelayTime = 0f;
+
+                    Tween colorTween = mainCharacterSpriteRenderer.DOColor(color, 0.01f);
+                    Tween colorBackTween = mainCharacterSpriteRenderer.DOColor(colorOriginal, 0.01f);
+                    colorBackTween.SetDelay<Tween>(0.3f);
+
+                    Tween shakeTween = mainCharacterTransform.DOShakePosition(0.3f, 0.3f, 3, 10, false, true);
+
+                    mainCharacterSpriteRenderer.DOFade(0.55f, 0.01f);
+                    Tween fadeBackTween = mainCharacterSpriteRenderer.DOFade(1f, 0.01f);
+                    fadeBackTween.SetDelay<Tween>(0.3f);
+
+                    mainCharacterTransform.DOMoveY(mainCharacterTransform.position.y - 4, 0.3f, false);
+                }
+            }
         }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision)
+            {
+                Debug.Log(collision.name);
+            }
+        }
+
 
     }
 }
