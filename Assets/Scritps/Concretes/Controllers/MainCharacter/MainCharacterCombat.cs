@@ -33,16 +33,12 @@ namespace Project2.Concretes.Controllers.MainCharacter
         }
         private void Update()
         {
-            AttackTimer();
             AttackAction();
-            InvisibilitySkillTimer();
             StartCoroutine(InvisibilitySkill());
-            DashSkillTimer();
             DashSkill();
         }
-        
-       
-        void AttackTimer()
+
+        public void AttackAction()
         {
             currentAttackDelayTime += Time.deltaTime;
             if (currentAttackDelayTime > delayAttackTime)
@@ -53,9 +49,6 @@ namespace Project2.Concretes.Controllers.MainCharacter
             {
                 canAttack = false;
             }
-        }
-        public void AttackAction()
-        {
             if (canAttack)
             {
                 if (Input.GetKeyDown(KeyCode.Space))
@@ -63,11 +56,10 @@ namespace Project2.Concretes.Controllers.MainCharacter
                     StartCoroutine(mainCharacterAnimationController.PlayAttackOrder1());
                     currentAttackDelayTime = 0f;
                 }
-                
             }
-            
         }
-        void InvisibilitySkillTimer()
+       
+        IEnumerator InvisibilitySkill()
         {
             currentInvisibilitySkillDelayTime += Time.deltaTime;
             if (currentInvisibilitySkillDelayTime > delayInvisibilitySkill)
@@ -78,34 +70,40 @@ namespace Project2.Concretes.Controllers.MainCharacter
             {
                 canInvisiblityskill = false;
             }
-        }
-        IEnumerator InvisibilitySkill()
-        {
             if (canInvisiblityskill)
             {
-                if (Input.GetKeyDown(KeyCode.K))
-                {
-                    canInvisiblityskill = false;
-                    currentInvisibilitySkillDelayTime = 0f;
-                    mainCharacterMovementController.RunSpeed = 12f;
-                    Color colorOriginal = new Color();
-                    colorOriginal = mainCharacterSpriteRenderer.color;
-                    Color color = new Color();
-                    color.a = 0.8f;
+               
+                    if (Input.GetKeyDown(KeyCode.K))
+                    {
+                        canInvisiblityskill = false;
+                        currentInvisibilitySkillDelayTime = 0f;
+                        mainCharacterMovementController.RunSpeed = 12f;
+                        Color colorOriginal = new Color();
+                        colorOriginal = mainCharacterSpriteRenderer.color;
+                        Color color = new Color();
+                        color.a = 0.8f;
 
-                    Tween colorTween = mainCharacterSpriteRenderer.DOColor(color, 0.3f);
+                        Tween colorTween = mainCharacterSpriteRenderer.DOColor(color, 0.3f);
 
-                    Tween colorBackTween = mainCharacterSpriteRenderer.DOColor(colorOriginal, 0.3f);
-                    colorBackTween.SetDelay<Tween>(5f);
-                    yield return new WaitForSeconds(5f);
-                    mainCharacterMovementController.RunSpeed = 6f;
-                }
-                yield break;
+                        Tween colorBackTween = mainCharacterSpriteRenderer.DOColor(colorOriginal, 0.3f);
+                        colorBackTween.SetDelay<Tween>(5f);
+                        yield return new WaitForSeconds(5f);
+                        mainCharacterMovementController.RunSpeed = 6f;
+                    }
+                    yield break;
+                
             }
+
+           
         }
 
-        void DashSkillTimer()
+        void DashSkill()
         {
+            Color colorOriginal = new Color();
+            colorOriginal = mainCharacterSpriteRenderer.color;
+            Color color = new Color();
+            color = Color.red;
+
             currentDashSkillDelayTime += Time.deltaTime;
             if (currentDashSkillDelayTime > delayDashSkill)
             {
@@ -115,13 +113,6 @@ namespace Project2.Concretes.Controllers.MainCharacter
             {
                 canDashSkill = false;
             }
-        }
-        void DashSkill()
-        {
-            Color colorOriginal = new Color();
-            colorOriginal = mainCharacterSpriteRenderer.color;
-            Color color = new Color();
-            color = Color.red;
 
             if (canDashSkill)
             {
