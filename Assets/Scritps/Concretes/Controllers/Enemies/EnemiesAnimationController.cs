@@ -8,24 +8,27 @@ namespace Project2.Concretes.Controllers.Enemies
     {
         Animator enemiesAnimator;
         Rigidbody2D enemiesRigidbody2D;
+        Transform enemiesTransform;
 
         private void Awake()
         {
             enemiesAnimator = GetComponent<Animator>();
             enemiesRigidbody2D = GetComponent<Rigidbody2D>();
+            enemiesTransform = GetComponent<Transform>();
         }
         private void Update()
         {
             EnemiesAnimDecider();
-            EnemiesStateDecider();
         }
 
         public enum EnemiesState { Idle, Run , Death}
         EnemiesState enemiesState;
 
+        public EnemiesState EnemiesState1 { get => enemiesState; set => enemiesState = value; }
+
         void EnemiesAnimDecider()
         {
-            switch (enemiesState)
+            switch (EnemiesState1)
             {
                 case EnemiesState.Idle:
                     PlayIdleAnimation();
@@ -40,17 +43,7 @@ namespace Project2.Concretes.Controllers.Enemies
                     break;
             }
         }
-        void EnemiesStateDecider()
-        {
-            if (Mathf.Abs(enemiesRigidbody2D.velocity.x) < 1f && Mathf.Abs(enemiesRigidbody2D.velocity.y) <1f)
-            {
-                enemiesState = EnemiesState.Idle;
-            }
-            else
-            {
-                enemiesState = EnemiesState.Run;
-            }
-        }
+       
         void PlayIdleAnimation()
         {
             enemiesAnimator.SetBool("isIdle", true);
@@ -59,7 +52,7 @@ namespace Project2.Concretes.Controllers.Enemies
         void PlayRunAnimation()
         {
             enemiesAnimator.SetBool("isIdle", false);
-            enemiesAnimator.SetBool("isRunnig", true);
+            enemiesAnimator.SetBool("isRunning", true);
         }
         void PlayDeathAnimation()
         {
