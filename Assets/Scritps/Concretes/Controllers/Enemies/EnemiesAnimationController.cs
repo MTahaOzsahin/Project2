@@ -56,7 +56,9 @@ namespace Project2.Concretes.Controllers.Enemies
         }
         void PlayDeathAnimation()
         {
-
+            enemiesAnimator.SetBool("isIdle", false);
+            enemiesAnimator.SetBool("isRunning", false);
+            enemiesAnimator.SetBool("isDeath", true);
         }
     }
 }

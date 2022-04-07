@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3221402712997974125}
   - component: {fileID: 4794068916045830022}
   m_Layer: 0
-  m_Name: Warrior
+  m_Name: WarriorLevel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,3 +204,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70c4a319713d9b449b6092f433801c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemiesType: 0
+  enemiesPathLevel1:
+  - {x: -3.5, y: -7.8, z: 0}
+  - {x: 8.64, y: -7.8, z: 0}
+  - {x: 8.64, y: -1.51, z: 0}
+  - {x: -0.3, y: -1.51, z: 0}
+  - {x: -0.3, y: 3.53, z: 0}
+  - {x: 7.2, y: 3.53, z: 0}
+  - {x: 7.2, y: 14.19, z: 0}
+  - {x: 5.96, y: 14.19, z: 0}
+  - {x: 5.96, y: 14.73, z: 0}
+  - {x: -0.26, y: 14.73, z: 0}
+  enemiesPathLevel2: []
+  enemiesPathLevel3: []
