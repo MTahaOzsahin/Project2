@@ -21,8 +21,8 @@ namespace Project2.Concretes.Controllers.Enemies
             EnemiesAnimDecider();
         }
 
-        public enum EnemiesState { Idle, Run , Death}
-        EnemiesState enemiesState;
+        public enum EnemiesState { Idle, Run , Death, Attack, Attack2}
+        public EnemiesState enemiesState;
 
         public EnemiesState EnemiesState1 { get => enemiesState; set => enemiesState = value; }
 
@@ -38,6 +38,12 @@ namespace Project2.Concretes.Controllers.Enemies
                     break;
                 case EnemiesState.Death:
                     PlayDeathAnimation();
+                    break;
+                case EnemiesState.Attack:
+                    StartCoroutine(PlayAttackAnimation());
+                    break;
+                case EnemiesState.Attack2:
+                    StartCoroutine(PlayAttack2Animation());
                     break;
                 default:
                     break;
@@ -59,6 +65,34 @@ namespace Project2.Concretes.Controllers.Enemies
             enemiesAnimator.SetBool("isIdle", false);
             enemiesAnimator.SetBool("isRunning", false);
             enemiesAnimator.SetBool("isDeath", true);
+        }
+        IEnumerator PlayAttackAnimation()
+        {
+            enemiesAnimator.SetBool("isAttacking",true);
+            enemiesAnimator.SetBool("isIdle", false);
+            enemiesAnimator.SetBool("isRunning", false);
+
+            yield return new WaitForSeconds(1f);
+
+            enemiesAnimator.SetBool("isAttacking", false);
+            enemiesAnimator.SetBool("isIdle", true);
+            enemiesAnimator.SetBool("isRunning", false);
+
+            yield break;
+        }
+        IEnumerator PlayAttack2Animation()
+        {
+            enemiesAnimator.SetBool("isAttacking2",true);
+            enemiesAnimator.SetBool("isIdle", false);
+            enemiesAnimator.SetBool("isRunning", false);
+
+            yield return new WaitForSeconds(1f);
+
+            enemiesAnimator.SetBool("isAttacking2", false);
+            enemiesAnimator.SetBool("isIdle", true);
+            enemiesAnimator.SetBool("isRunning", false);
+
+            yield break;
         }
     }
 }

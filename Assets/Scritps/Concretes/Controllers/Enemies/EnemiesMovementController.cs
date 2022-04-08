@@ -46,15 +46,15 @@ namespace Project2.Concretes.Controllers.Enemies
         }
         private void Update()
         {
-            enemiesMovementDetector();
-            enemiesFaceDirection();
+            //EnemiesMovementDetector();
+            EnemiesFaceDirection();
             if (Input.GetKeyDown(KeyCode.R))
             {
-                StartCoroutine(enemiesPathMovement());
+                StartCoroutine(EnemiesPathMovement());
             }
         }
        
-        IEnumerator enemiesPathMovement()
+        IEnumerator EnemiesPathMovement()
         {
             switch (enemiesType)
             {
@@ -84,9 +84,9 @@ namespace Project2.Concretes.Controllers.Enemies
             
             yield break;
         }
-        void enemiesMovementDetector()
+        void EnemiesMovementDetector()
         {
-            float threshold = 0.0f;
+            float threshold = 0.1f;
             Vector3 offset = enemiesTransform.position - enemiesLastPosition;
             enemiesLastPosition = enemiesTransform.position;
             
@@ -105,9 +105,9 @@ namespace Project2.Concretes.Controllers.Enemies
                 enemiesAnimationController.EnemiesState1 = EnemiesAnimationController.EnemiesState.Idle;
             }
         }
-        void enemiesFaceDirection()
+        void EnemiesFaceDirection()
         {
-            float threshold = 0.0f;
+            float threshold = 0.1f;
             Vector3 offset = enemiesTransform.position - enemiesLastPosition1;
             if (offset.x >threshold)
             {

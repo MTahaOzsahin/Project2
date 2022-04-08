@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2074331072654058686}
   - component: {fileID: 5858763499104154224}
   - component: {fileID: 5201905966607221932}
+  - component: {fileID: 2016259378705942667}
   - component: {fileID: 5810583862835547923}
   - component: {fileID: 9136188414061543802}
   - component: {fileID: 2632644889514412558}
@@ -135,6 +136,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13133843, y: 0.09565905}
   m_EdgeRadius: 0
+--- !u!58 &2016259378705942667
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074331072654058657}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!50 &5810583862835547923
 Rigidbody2D:
   serializedVersion: 4
@@ -180,6 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcaf8389491041848af4c2cd32ba02bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &5793545495185022134
 MonoBehaviour:
   m_ObjectHideFlags: 0

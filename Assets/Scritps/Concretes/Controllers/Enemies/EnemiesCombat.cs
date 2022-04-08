@@ -2,17 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemiesCombat : MonoBehaviour
+namespace Project2.Concretes.Controllers.Enemies
 {
-    // Start is called before the first frame update
-    void Start()
+    public class EnemiesCombat : MonoBehaviour
     {
+        EnemiesAnimationController enemiesAnimationController;
         
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+        private void Awake()
+        {
+            enemiesAnimationController = GetComponent<EnemiesAnimationController>();
+        }
+        private void FixedUpdate()
+        {
+           
+        }
+
+        
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                enemiesAnimationController.EnemiesState1 = EnemiesAnimationController.EnemiesState.Attack2;
+                Debug.Log("Player detected");
+            }
+        }
+
         
     }
 }
