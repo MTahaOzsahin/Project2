@@ -68,13 +68,12 @@ namespace Project2.Concretes.Controllers.Enemies
         }
         IEnumerator PlayAttackAnimation()
         {
-            enemiesAnimator.SetBool("isAttacking",true);
             enemiesAnimator.SetBool("isIdle", false);
             enemiesAnimator.SetBool("isRunning", false);
+            enemiesAnimator.SetTrigger("isAttacking");
 
             yield return new WaitForSeconds(1f);
 
-            enemiesAnimator.SetBool("isAttacking", false);
             enemiesAnimator.SetBool("isIdle", true);
             enemiesAnimator.SetBool("isRunning", false);
 
@@ -82,13 +81,12 @@ namespace Project2.Concretes.Controllers.Enemies
         }
         IEnumerator PlayAttack2Animation()
         {
-            enemiesAnimator.SetBool("isAttacking2",true);
             enemiesAnimator.SetBool("isIdle", false);
             enemiesAnimator.SetBool("isRunning", false);
+            enemiesAnimator.SetTrigger("isAttacking2");
 
             yield return new WaitForSeconds(1f);
 
-            enemiesAnimator.SetBool("isAttacking2", false);
             enemiesAnimator.SetBool("isIdle", true);
             enemiesAnimator.SetBool("isRunning", false);
 

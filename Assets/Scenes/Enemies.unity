@@ -1036,6 +1036,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2016259378705942667, guid: a165e3a975905854db1d4169a87af4dd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2074331072654058657, guid: a165e3a975905854db1d4169a87af4dd,
         type: 3}
       propertyPath: m_Name
@@ -1096,6 +1101,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2632644889514412558, guid: a165e3a975905854db1d4169a87af4dd,
+        type: 3}
+      propertyPath: mainCharacterTransfrom
+      value: 
+      objectReference: {fileID: 1949213297}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a165e3a975905854db1d4169a87af4dd, type: 3}
 --- !u!1001 &2937146282415203953
@@ -1165,6 +1175,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WarriorLevel3
       objectReference: {fileID: 0}
+    - target: {fileID: 3263139006356411963, guid: 302ae7c43bd18d345b0654829f30307c,
+        type: 3}
+      propertyPath: mainCharacterTransfrom
+      value: 
+      objectReference: {fileID: 1949213297}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 302ae7c43bd18d345b0654829f30307c, type: 3}
 --- !u!1001 &6925400720750248469
@@ -1174,6 +1189,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6366821902914750165, guid: a388934ddb645b4449424243638a4586,
+        type: 3}
+      propertyPath: mainCharacterTransfrom
+      value: 
+      objectReference: {fileID: 1949213297}
     - target: {fileID: 6925400720224135268, guid: a388934ddb645b4449424243638a4586,
         type: 3}
       propertyPath: m_RootOrder

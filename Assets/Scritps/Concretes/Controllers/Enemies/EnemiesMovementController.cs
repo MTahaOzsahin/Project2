@@ -36,8 +36,6 @@ namespace Project2.Concretes.Controllers.Enemies
         private void Start()
         {
             enemiesStartPosition = enemiesTransform.position;
-           
-            //StartCoroutine(enemiesPathMovement());
         }
 
         private void FixedUpdate()
@@ -46,7 +44,7 @@ namespace Project2.Concretes.Controllers.Enemies
         }
         private void Update()
         {
-            //EnemiesMovementDetector();
+            EnemiesMovementDetector();
             EnemiesFaceDirection();
             if (Input.GetKeyDown(KeyCode.R))
             {
@@ -100,7 +98,9 @@ namespace Project2.Concretes.Controllers.Enemies
                 enemiesLastPosition = enemiesTransform.position;
                 enemiesAnimationController.EnemiesState1 = EnemiesAnimationController.EnemiesState.Run;
             }
-            if (enemiesTransform.position == enemiesStartPosition)
+            if (enemiesTransform.position == enemiesStartPosition &&
+                enemiesAnimationController.EnemiesState1 != EnemiesAnimationController.EnemiesState.Attack2 &&
+                enemiesAnimationController.EnemiesState1 != EnemiesAnimationController.EnemiesState.Attack)
             {
                 enemiesAnimationController.EnemiesState1 = EnemiesAnimationController.EnemiesState.Idle;
             }
