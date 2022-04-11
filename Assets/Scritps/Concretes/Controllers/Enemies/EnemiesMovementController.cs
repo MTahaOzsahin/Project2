@@ -111,12 +111,12 @@ namespace Project2.Concretes.Controllers.Enemies
             Vector3 offset = enemiesTransform.position - enemiesLastPosition1;
             if (offset.x >threshold)
             {
-                enemiesSpriteRenderer.flipX = false;
+                enemiesTransform.localScale = new Vector2(3, 3);
                 enemiesLastPosition1 = enemiesTransform.position;
             }
             if (offset.x < -threshold)
             {
-                enemiesSpriteRenderer.flipX = true;
+                enemiesTransform.localScale = new Vector2(-3, 3);
                 enemiesLastPosition1 = enemiesTransform.position;
             }
         }

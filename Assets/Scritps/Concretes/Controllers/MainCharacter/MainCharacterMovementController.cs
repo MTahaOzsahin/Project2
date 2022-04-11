@@ -7,7 +7,7 @@ namespace Project2.Concretes.Controllers.MainCharacter
     public class MainCharacterMovementController : MonoBehaviour
     {
         Rigidbody2D mainCharacterRigibody;
-        SpriteRenderer mainCharacterSpriteRenderer;
+        Transform mainCharacterTransform;
 
        
 
@@ -20,7 +20,7 @@ namespace Project2.Concretes.Controllers.MainCharacter
         private void Awake()
         {
             mainCharacterRigibody = GetComponent<Rigidbody2D>();
-            mainCharacterSpriteRenderer = GetComponent<SpriteRenderer>();
+            mainCharacterTransform = GetComponent<Transform>();
            
 
         }
@@ -30,12 +30,13 @@ namespace Project2.Concretes.Controllers.MainCharacter
             if (Input.GetKey(KeyCode.D))
             {
                 mainCharacterRigibody.velocity = new Vector2(RunSpeed, mainCharacterRigibody.velocity.y);
-                mainCharacterSpriteRenderer.flipX = false;
+                mainCharacterTransform.localScale = new Vector2(1.85f, 1.85f);
             }
             if (Input.GetKey(KeyCode.A))
             {
                 mainCharacterRigibody.velocity = new Vector2(-RunSpeed, mainCharacterRigibody.velocity.y);
-                mainCharacterSpriteRenderer.flipX = true;
+                mainCharacterTransform.localScale = new Vector2(-1.85f, 1.85f);
+
             }
             if (Input.GetKey(KeyCode.W))
             {

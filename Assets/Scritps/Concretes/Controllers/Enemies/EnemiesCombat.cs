@@ -12,6 +12,7 @@ namespace Project2.Concretes.Controllers.Enemies
         
 
         bool isMainCharacterNear = false;
+        bool isAttackAvailable = false;
 
         [SerializeField] Transform mainCharacterTransfrom;    //MainCharacter's transfrom will add manually via Unity inspector
 
@@ -28,7 +29,7 @@ namespace Project2.Concretes.Controllers.Enemies
         private void Update()
         {
             Detacher();
-            Chase();
+            ChaseAndAttack();
         }
 
        
@@ -46,10 +47,18 @@ namespace Project2.Concretes.Controllers.Enemies
                 //    isMainCharacterNear = false;
                 //}
             }
+            Collider2D[] hitResult = Physics2D.OverlapCircleAll(enemiesTransform.position, 0.8f);
+            foreach (Collider2D hit in hitResult)
+            {
+                if (hit.gameObject.CompareTag("Player"))
+                {
+                    isAttackAvailable = true;
+                }
+            }
         }
         
 
-        void Chase()
+        void ChaseAndAttack()
         {
             Vector2 limitor;
             limitor = new  Vector3(1f, 1f);
@@ -57,15 +66,34 @@ namespace Project2.Concretes.Controllers.Enemies
             offset = enemiesTransform.position - mainCharacterTransfrom.position;
             if (isMainCharacterNear)
             {
-                enemiesRigiBody2D.velocity = -offset;
+                enemiesRigiBody2D.velocity = -offset * 2;
+                isMainCharacterNear = false;
             }
-            //if (Mathf.Abs(enemiesRigiBody2D.velocity.x) > 3 || Mathf.Abs(enemiesRigiBody2D.velocity.y) > 3)
-            //{
-            //    enemiesRigiBody2D.velocity = -offset / 6;
-            //    Debug.Log("velocity is high");
-            //}
+            if (isAttackAvailable)
+            {
+                StartCoroutine(AttackOrder());
+                isAttackAvailable = false;
+            }
+
+            IEnumerator AttackOrder()
+            {
+                
+                 enemiesAnimationController.EnemiesState1 = EnemiesAnimationController.EnemiesState.Attack;
+                 yield return new WaitForSeconds(0.1f);
+                 enemiesAnimationController.EnemiesState1 = EnemiesAnimationController.EnemiesState.Run;
+                
+                yield break;
+            }
+            
+        }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("PlayerHit"))
+            {
+                Debug.Log("hit");
+                Destroy(this.gameObject);
+            }
         }
 
-        
     }
 }
