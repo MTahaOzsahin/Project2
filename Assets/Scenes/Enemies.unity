@@ -140,6 +140,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WarriorLevel2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2074331072654058657, guid: a165e3a975905854db1d4169a87af4dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2074331072654058687, guid: a165e3a975905854db1d4169a87af4dd,
         type: 3}
       propertyPath: m_RootOrder
@@ -608,6 +613,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WarriorLevel2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2074331072654058657, guid: a165e3a975905854db1d4169a87af4dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2074331072654058687, guid: a165e3a975905854db1d4169a87af4dd,
         type: 3}
       propertyPath: m_RootOrder
@@ -958,6 +968,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WarriorLevel1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6925400720224135290, guid: a388934ddb645b4449424243638a4586,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a388934ddb645b4449424243638a4586, type: 3}
 --- !u!4 &983833670 stripped
@@ -982,6 +997,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WarriorLevel2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074331072654058657, guid: a165e3a975905854db1d4169a87af4dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2074331072654058687, guid: a165e3a975905854db1d4169a87af4dd,
         type: 3}
@@ -1386,6 +1406,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WarriorLevel1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6925400720224135290, guid: a388934ddb645b4449424243638a4586,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a388934ddb645b4449424243638a4586, type: 3}
 --- !u!4 &1655593491 stripped
@@ -1580,6 +1605,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WarriorLevel1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6925400720224135290, guid: a388934ddb645b4449424243638a4586,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a388934ddb645b4449424243638a4586, type: 3}
 --- !u!4 &1896380198 stripped
@@ -1731,6 +1761,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WarriorLevel3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1515591196326557844, guid: 302ae7c43bd18d345b0654829f30307c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3263139006356411963, guid: 302ae7c43bd18d345b0654829f30307c,
         type: 3}
       propertyPath: mainCharacterTransfrom
@@ -1760,6 +1795,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WarriorLevel2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074331072654058657, guid: a165e3a975905854db1d4169a87af4dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2074331072654058687, guid: a165e3a975905854db1d4169a87af4dd,
         type: 3}
@@ -1890,6 +1930,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WarriorLevel3
       objectReference: {fileID: 0}
+    - target: {fileID: 1515591196326557844, guid: 302ae7c43bd18d345b0654829f30307c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3263139006356411963, guid: 302ae7c43bd18d345b0654829f30307c,
         type: 3}
       propertyPath: mainCharacterTransfrom
@@ -1968,6 +2013,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WarriorLevel1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925400720224135290, guid: a388934ddb645b4449424243638a4586,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a388934ddb645b4449424243638a4586, type: 3}

@@ -14,7 +14,12 @@ namespace Project2.Concretes.Controllers.Enemies
         bool isMainCharacterNear = false;
         bool isAttackAvailable = false;
 
+        
+
         [SerializeField] Transform mainCharacterTransfrom;    //MainCharacter's transfrom will add manually via Unity inspector
+
+        bool isDeath = false;
+        public bool IsDeath { get => isDeath; set => isDeath = value; }
 
         private void Awake()
         {
@@ -24,7 +29,7 @@ namespace Project2.Concretes.Controllers.Enemies
         }
         private void FixedUpdate()
         {
-           
+            Debug.Log(isMainCharacterNear);
         }
         private void Update()
         {
@@ -42,12 +47,9 @@ namespace Project2.Concretes.Controllers.Enemies
                 {
                     isMainCharacterNear = true;
                 }
-                //if (result.gameObject.CompareTag("Player") == null)
-                //{
-                //    isMainCharacterNear = false;
-                //}
+                
             }
-            Collider2D[] hitResult = Physics2D.OverlapCircleAll(enemiesTransform.position, 0.8f);
+            Collider2D[] hitResult = Physics2D.OverlapCircleAll(enemiesTransform.position, 0.5f);
             foreach (Collider2D hit in hitResult)
             {
                 if (hit.gameObject.CompareTag("Player"))
@@ -60,9 +62,9 @@ namespace Project2.Concretes.Controllers.Enemies
 
         void ChaseAndAttack()
         {
-            Vector2 limitor;
-            limitor = new  Vector3(1f, 1f);
             Vector3 offset;
+            offset.x = Mathf.Clamp(0f, 0f, 5f);
+            offset.y = Mathf.Clamp(0f, 0f, 5f);
             offset = enemiesTransform.position - mainCharacterTransfrom.position;
             if (isMainCharacterNear)
             {
@@ -71,13 +73,15 @@ namespace Project2.Concretes.Controllers.Enemies
             }
             if (isAttackAvailable)
             {
+                enemiesRigiBody2D.velocity = new Vector2(0, 0);
                 StartCoroutine(AttackOrder());
                 isAttackAvailable = false;
             }
 
             IEnumerator AttackOrder()
             {
-                
+                if (isDeath)
+                    yield break;
                  enemiesAnimationController.EnemiesState1 = EnemiesAnimationController.EnemiesState.Attack;
                  yield return new WaitForSeconds(0.1f);
                  enemiesAnimationController.EnemiesState1 = EnemiesAnimationController.EnemiesState.Run;
@@ -90,8 +94,15 @@ namespace Project2.Concretes.Controllers.Enemies
         {
             if (collision.gameObject.CompareTag("PlayerHit"))
             {
-                Debug.Log("hit");
-                Destroy(this.gameObject);
+                StartCoroutine(DeathOrder());
+               IEnumerator DeathOrder()
+                {
+                    enemiesAnimationController.EnemiesState1 = EnemiesAnimationController.EnemiesState.Death;
+                    isDeath = true;
+                    yield return new WaitForSeconds(2.2f);
+                    Destroy(this.gameObject);
+                    yield break;
+                }
             }
         }
 

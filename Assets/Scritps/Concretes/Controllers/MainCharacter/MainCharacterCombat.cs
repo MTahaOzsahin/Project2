@@ -192,10 +192,9 @@ namespace Project2.Concretes.Controllers.MainCharacter
         {
             if (collision.gameObject.CompareTag("EnemiesHit"))
             {
-                mainCharacterTransform.DOShakePosition(0.5f, 0.5f, 30, 50, true, true);
+                //mainCharacterTransform.DOShakePosition(0.5f, 0.5f, 30, 50, true, true);
                 Tween colorTween = mainCharacterSpriteRenderer.DOBlendableColor(Color.red, 0.3f);
                 colorTween.OnComplete(() => mainCharacterSpriteRenderer.DOBlendableColor(Color.white, 0.2f));
-                Debug.Log("death");
             }
         }
 

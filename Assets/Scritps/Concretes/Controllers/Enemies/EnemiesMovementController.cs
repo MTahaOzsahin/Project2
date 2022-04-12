@@ -12,6 +12,8 @@ namespace Project2.Concretes.Controllers.Enemies
         SpriteRenderer enemiesSpriteRenderer;
         EnemiesAnimationController enemiesAnimationController;
 
+        EnemiesCombat enemiesCombat;
+
         enum EnemiesType { level1,level2,level3}
         [SerializeField] EnemiesType enemiesType;
 
@@ -32,6 +34,7 @@ namespace Project2.Concretes.Controllers.Enemies
             enemiesTransform = GetComponent<Transform>();
             enemiesSpriteRenderer = GetComponent<SpriteRenderer>();
             enemiesAnimationController = GetComponent<EnemiesAnimationController>();
+            enemiesCombat = GetComponent<EnemiesCombat>();
         }
         private void Start()
         {
@@ -84,9 +87,14 @@ namespace Project2.Concretes.Controllers.Enemies
         }
         void EnemiesMovementDetector()
         {
+            
             float threshold = 0.1f;
             Vector3 offset = enemiesTransform.position - enemiesLastPosition;
             enemiesLastPosition = enemiesTransform.position;
+            if (enemiesCombat.IsDeath)
+                return;
+
+            
             
             if (offset.x > threshold || offset.y > threshold)
             {
