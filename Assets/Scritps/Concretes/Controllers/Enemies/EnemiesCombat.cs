@@ -29,12 +29,12 @@ namespace Project2.Concretes.Controllers.Enemies
         }
         private void FixedUpdate()
         {
-            Debug.Log(isMainCharacterNear);
+            
         }
         private void Update()
         {
             Detacher();
-            ChaseAndAttack();
+            ChaseAndAttackAndDeath();
         }
 
        
@@ -43,6 +43,7 @@ namespace Project2.Concretes.Controllers.Enemies
             Collider2D[] areaResult = Physics2D.OverlapCircleAll(enemiesTransform.position, 3f);
             foreach (Collider2D result in areaResult)
             {
+               
                 if (result.gameObject.CompareTag("Player"))
                 {
                     isMainCharacterNear = true;
@@ -60,24 +61,34 @@ namespace Project2.Concretes.Controllers.Enemies
         }
         
 
-        void ChaseAndAttack()
+        void ChaseAndAttackAndDeath()
         {
             Vector3 offset;
-            offset.x = Mathf.Clamp(0f, 0f, 5f);
-            offset.y = Mathf.Clamp(0f, 0f, 5f);
             offset = enemiesTransform.position - mainCharacterTransfrom.position;
+            if (offset.x > 3f || offset.y >3f)
+            {
+                isMainCharacterNear = false;
+                enemiesRigiBody2D.velocity = new Vector2(0f, 0f);
+                enemiesAnimationController.EnemiesState1 = EnemiesAnimationController.EnemiesState.Idle;
+            }
+           
             if (isMainCharacterNear)
             {
                 enemiesRigiBody2D.velocity = -offset * 2;
-                isMainCharacterNear = false;
+            }
+            if (offset.x > 1f || offset.y > 1f)
+            {
+                isAttackAvailable = false;
             }
             if (isAttackAvailable)
             {
-                enemiesRigiBody2D.velocity = new Vector2(0, 0);
                 StartCoroutine(AttackOrder());
-                isAttackAvailable = false;
             }
-
+            if (isDeath)
+            {
+                enemiesRigiBody2D.velocity = new Vector2(0f, 0f);
+            }
+            
             IEnumerator AttackOrder()
             {
                 if (isDeath)

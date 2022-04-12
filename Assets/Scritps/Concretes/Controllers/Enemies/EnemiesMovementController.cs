@@ -60,14 +60,8 @@ namespace Project2.Concretes.Controllers.Enemies
             switch (enemiesType)
             {
                 case EnemiesType.level1:
-                    //Sequence level1Sequence = DOTween.Sequence().SetLoops(-1);
-                    //level1Sequence.SetDelay(3f);
-                    //level1Sequence.Append(enemiesTransform.DOPath(enemiesPathLevel1, 5f, PathType.Linear, PathMode.Ignore, 1, Color.red).SetOptions(false).
-                    //    SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo));
-                    //level1Sequence.AppendInterval(3f);
                     Tween TweenPathLevel1 = enemiesTransform.DOPath(enemiesPathLevel1, 16f, PathType.Linear, PathMode.Ignore, 1, Color.red).SetOptions(false).
                         SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
-                    
                     break;
                 case EnemiesType.level2:
                     Tween TweenPathLevel2 = enemiesTransform.DOPath(enemiesPathLevel2, 14f, PathType.Linear, PathMode.Ignore, 1, Color.red).SetOptions(false).
