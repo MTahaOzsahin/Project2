@@ -9,6 +9,7 @@ namespace Project2.Concretes.Controllers.Enemies
         EnemiesAnimationController enemiesAnimationController;
         Rigidbody2D enemiesRigiBody2D;
         Transform enemiesTransform;
+
         
 
         bool isMainCharacterNear = false;
@@ -16,7 +17,7 @@ namespace Project2.Concretes.Controllers.Enemies
 
         
 
-        [SerializeField] Transform mainCharacterTransfrom;    //MainCharacter's transfrom will add manually via Unity inspector
+        
 
         bool isDeath = false;
         public bool IsDeath { get => isDeath; set => isDeath = value; }
@@ -26,6 +27,7 @@ namespace Project2.Concretes.Controllers.Enemies
             enemiesTransform = GetComponent<Transform>();
             enemiesRigiBody2D = GetComponent<Rigidbody2D>();
             enemiesAnimationController = GetComponent<EnemiesAnimationController>();
+            
         }
         private void FixedUpdate()
         {
@@ -63,8 +65,9 @@ namespace Project2.Concretes.Controllers.Enemies
 
         void ChaseAndAttackAndDeath()
         {
+            GameObject mainCharacterGameObject = GameObject.FindGameObjectWithTag("Player"); 
             Vector3 offset;
-            offset = enemiesTransform.position - mainCharacterTransfrom.position;
+            offset = enemiesTransform.position - mainCharacterGameObject.transform.position;
             if (offset.x > 3f || offset.y >3f)
             {
                 isMainCharacterNear = false;
@@ -110,7 +113,7 @@ namespace Project2.Concretes.Controllers.Enemies
                 {
                     enemiesAnimationController.EnemiesState1 = EnemiesAnimationController.EnemiesState.Death;
                     isDeath = true;
-                    yield return new WaitForSeconds(2.2f);
+                    yield return new WaitForSeconds(2.8f);
                     Destroy(this.gameObject);
                     yield break;
                 }

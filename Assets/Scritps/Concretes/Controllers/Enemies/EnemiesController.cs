@@ -1,18 +1,17 @@
+using Project2.Abstract.Controlllers;
+using Project2.Concretes.Pools;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemiesController : MonoBehaviour
+namespace Project2.Concretes.Controllers.Enemies
 {
-    // Start is called before the first frame update
-    void Start()
+    public  class EnemiesController : EnemiesAbstractController
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void SetEnemiesPool()
+        {
+            EnemiesPool.Instance.Set(this);
+        }
     }
 }
+

@@ -117,6 +117,8 @@ GameObject:
   - component: {fileID: 6366821902914750165}
   - component: {fileID: 3221402712997974125}
   - component: {fileID: 4794068916045830022}
+  - component: {fileID: 3799628294159051775}
+  - component: {fileID: 3227655067309863146}
   m_Layer: 0
   m_Name: WarriorLevel1
   m_TagString: Enemies
@@ -308,7 +310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcaf8389491041848af4c2cd32ba02bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCharacterTransfrom: {fileID: 0}
 --- !u!114 &3221402712997974125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,3 +348,27 @@ MonoBehaviour:
   - {x: -0.26, y: 14.73, z: 0}
   enemiesPathLevel2: []
   enemiesPathLevel3: []
+--- !u!114 &3799628294159051775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6925400720224135290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee8fc722b3b123a4290c21be643ba69c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3227655067309863146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6925400720224135290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b744a752b470f2b48a775c36770b729d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
