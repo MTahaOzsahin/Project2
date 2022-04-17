@@ -118,14 +118,13 @@ GameObject:
   - component: {fileID: 3221402712997974125}
   - component: {fileID: 4794068916045830022}
   - component: {fileID: 3799628294159051775}
-  - component: {fileID: 3227655067309863146}
   m_Layer: 0
   m_Name: WarriorLevel1
   m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6925400720224135268
 Transform:
   m_ObjectHideFlags: 0
@@ -178,8 +177,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1869315837
-  m_SortingLayer: 1
+  m_SortingLayerID: -105541197
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: -3318188226485093758, guid: ae72133dacba6ec4eb33ecde48f50e56,
     type: 3}
@@ -358,17 +357,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee8fc722b3b123a4290c21be643ba69c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3227655067309863146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6925400720224135290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b744a752b470f2b48a775c36770b729d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

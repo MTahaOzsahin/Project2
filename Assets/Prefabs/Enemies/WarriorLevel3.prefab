@@ -19,14 +19,13 @@ GameObject:
   - component: {fileID: 6460195797396357251}
   - component: {fileID: 4004954808805361512}
   - component: {fileID: 771937713802813126}
-  - component: {fileID: 2144642937148072679}
   m_Layer: 0
   m_Name: WarriorLevel3
   m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1515591196326557834
 Transform:
   m_ObjectHideFlags: 0
@@ -253,18 +252,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee8fc722b3b123a4290c21be643ba69c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2144642937148072679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515591196326557844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b744a752b470f2b48a775c36770b729d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9075101710253783609

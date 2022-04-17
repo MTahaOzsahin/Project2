@@ -1,3 +1,4 @@
+using Project2.Concretes.Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,10 +18,11 @@ namespace Project2.Concretes.Controllers.Enemies
 
         
 
-        
+
 
         bool isDeath = false;
         public bool IsDeath { get => isDeath; set => isDeath = value; }
+        
 
         private void Awake()
         {
@@ -104,15 +106,17 @@ namespace Project2.Concretes.Controllers.Enemies
             }
             
         }
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collison)
         {
-            if (collision.gameObject.CompareTag("PlayerHit"))
+            if (collison.gameObject.CompareTag("PlayerHit"))
             {
+                
                 StartCoroutine(DeathOrder());
                IEnumerator DeathOrder()
                 {
                     enemiesAnimationController.EnemiesState1 = EnemiesAnimationController.EnemiesState.Death;
                     isDeath = true;
+                    GameManager.Instance.IncreaseScore();
                     yield return new WaitForSeconds(2.8f);
                     Destroy(this.gameObject);
                     yield break;

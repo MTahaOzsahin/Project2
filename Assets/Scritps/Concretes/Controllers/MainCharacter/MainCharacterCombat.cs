@@ -24,6 +24,15 @@ namespace Project2.Concretes.Controllers.MainCharacter
         bool canInvisiblityskill = true;
         bool canDashSkill = true;
 
+
+
+
+
+        [SerializeField] bool _isDead;
+        public bool IsDead => _isDead;
+
+        public event System.Action onDead;
+
         private void Awake()
         {
             mainCharacterSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -192,9 +201,18 @@ namespace Project2.Concretes.Controllers.MainCharacter
         {
             if (collision.gameObject.CompareTag("EnemiesHit"))
             {
-                //mainCharacterTransform.DOShakePosition(0.5f, 0.5f, 30, 50, true, true);
-                Tween colorTween = mainCharacterSpriteRenderer.DOBlendableColor(Color.red, 0.3f);
-                colorTween.OnComplete(() => mainCharacterSpriteRenderer.DOBlendableColor(Color.white, 0.2f));
+                StartCoroutine(MainCharacterDeathOrder());
+                IEnumerator MainCharacterDeathOrder()
+                {
+                    Tween colorTween = mainCharacterSpriteRenderer.DOBlendableColor(Color.red, 0.3f);
+                    colorTween.OnComplete(() => mainCharacterSpriteRenderer.DOBlendableColor(Color.white, 0.2f));
+
+                    yield return new WaitForSeconds(1f);
+                    _isDead = true;
+                    onDead?.Invoke();
+                    Time.timeScale = 0f;
+                    yield break;
+                }
             }
         }
 
