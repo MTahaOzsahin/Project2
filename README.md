@@ -7,7 +7,7 @@ This Unity project has been created to improve myself. The project is a samurai 
 
 
 
-What is focused in project:
+# What is focused in project:
 
 *Object pool system.
 
